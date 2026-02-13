@@ -3,28 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FITLAS Street Fragrance</title>
+<title>FITLAS Fragrance</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
 <h2>FITLAS</h2>
-<a href="#produk">Shop</a>
+<ul>
+<li>Collection</li>
+<li>Story</li>
+<li>Contact</li>
+</ul>
 </nav>
 
-<header class="hero">
-<h1>SMELL DIFFERENT</h1>
-<p>Street Fragrance For Gen Z</p>
-<a href="#produk" class="btn">Explore Now</a>
-</header>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-text">
+<h1>Fragrance That Speaks Identity</h1>
+<p>Luxury scent crafted for modern generation</p>
+<button>Explore Collection</button>
+</div>
+</section>
 
-<section id="produk" class="produk">
+<!-- BRAND STORY -->
+<section class="story">
+<h2>The Essence of FITLAS</h2>
+<p>
+FITLAS menghadirkan aroma yang mencerminkan karakter,
+emosi, dan kepercayaan diri generasi modern.
+Setiap parfum dirancang untuk meninggalkan kesan tak terlupakan.
+</p>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="products">
+
+<div class="card">
+<img src="https://via.placeholder.com/300">
+<h3>Velvet Kiss</h3>
+<p>Romantic sweet elegance scent</p>
+</div>
 
 <div class="card">
 <img src="https://via.placeholder.com/300">
 <h3>Moon Dew</h3>
+<p>Fresh calming night aroma</p>
 <p>Rp79.000</p>
 <button onclick="addCart('Moon Dew',79000)">Add To Cart</button>
 </div>
@@ -32,33 +58,34 @@
 <div class="card">
 <img src="https://via.placeholder.com/300">
 <h3>Moon Blush</h3>
+<p>Soft feminine charming scent</p>
 <p>Rp79.000</p>
 <button onclick="addCart('Moon Blush',79000)">Add To Cart</button>
 </div>
 
 <div class="card">
 <img src="https://via.placeholder.com/300">
-<h3>Velvet Kiss</h3>
+<h3>Soft Blush</h3>
+<p>Gentle powdery daily fragrance</p>
 <p>Rp79.000</p>
-<button onclick="addCart('Velvet Kiss',79000)">Add To Cart</button>
+<button onclick="addCart('Soft Blush',79000)">Add To Cart</button>
 </div>
-  
+
 <div class="card">
 <img src="https://via.placeholder.com/300">
-<h3>Vanilla Drip</h3>
-<p>Rp69.000</p>
-<button onclick="addCart('Vanilla Drip',69000)">Add To Cart</button>
+<h3>Noir Desire</h3>
+<p>Dark sensual luxury aroma</p>
+<p>Rp79.000</p>
+<button onclick="addCart('Noir Desire',79000)">Add To Cart</button>
 </div>
 
 </section>
 
-<section class="cart">
-<h2>Your Cart</h2>
-<ul id="cart-list"></ul>
-<h3 id="total"></h3>
-<button class="checkout" onclick="checkoutWA()">Checkout WhatsApp</button>
+<!-- CTA -->
+<section class="cta">
+<h2>Find Your Signature Scent</h2>
+<a href="#">Order via WhatsApp</a>
 </section>
 
-<script src="js/cart.js"></script>
 </body>
 </html>
