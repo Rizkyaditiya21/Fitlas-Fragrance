@@ -1,46 +1,38 @@
-function addCart(nama,harga){
+let cart = [];
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function addCart(nama, harga){
 
 cart.push({nama,harga});
+renderCart();
 
-localStorage.setItem("cart",JSON.stringify(cart));
-
-alert("Produk ditambahkan");
 }
 
-function loadCart(){
+function renderCart(){
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let list = document.getElementById("cartList");
+let list = document.getElementById("cart-list");
 let total = 0;
-
-if(!list) return;
+list.innerHTML = "";
 
 cart.forEach(item=>{
-list.innerHTML += `
-<div class="item">
-${item.nama} - Rp ${item.harga}
-</div>
-`;
-
+list.innerHTML += `<li>${item.nama} - Rp${item.harga}</li>`;
 total += item.harga;
 });
 
-document.getElementById("total").innerText = "Total : Rp "+total;
+document.getElementById("total").innerText =
+"Total : Rp" + total;
+
 }
 
-function checkout(){
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function checkoutWA(){
 
 let pesan = "Halo saya mau order:%0A";
 
 cart.forEach(item=>{
-pesan += "- "+item.nama+" Rp "+item.harga+"%0A";
+pesan += `- ${item.nama}%0A`;
 });
 
-window.open("https://wa.me/6285872031760?text="+pesan);
-}
+window.open(
+`https://wa.me/625872031760?text=${pesan}`
+);
 
-loadCart();
+}
