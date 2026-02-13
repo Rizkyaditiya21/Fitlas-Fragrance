@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keranjang</title>
+
+<style>
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+padding:20px;
+}
+
+.item{
+background:#020617;
+padding:15px;
+margin-bottom:10px;
+border-radius:10px;
+}
+
+button{
+padding:10px 20px;
+background:gold;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Keranjang Belanja</h1>
+
+<div id="cartList"></div>
+
+<h3 id="total"></h3>
+
+<button onclick="checkout()">Checkout WhatsApp</button>
+
+<script src="js/cart.js"></script>
+
+</body>
+</html>
