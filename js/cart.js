@@ -118,7 +118,8 @@ function checkoutWA(){
         message += `• ${item.name} x${item.qty}%0A`;
     });
 
-    let wa = "https://wa.me/628XXXXXXXXXX?text=" + message;
+    let wa = "https://wa.me/6281234567890
+?text=" + message;
 
     window.open(wa);
 }
