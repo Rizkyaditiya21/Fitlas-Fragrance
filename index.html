@@ -1,91 +1,72 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FITLAS Fragrance</title>
+<title>Fitlas Fragrance</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
 <h2>FITLAS</h2>
-<ul>
-<li>Collection</li>
-<li>Story</li>
-<li>Contact</li>
-</ul>
+<a href="cart.html">🛒 Cart</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-<div class="hero-text">
-<h1>Fragrance That Speaks Identity</h1>
-<p>Luxury scent crafted for modern generation</p>
-<button>Explore Collection</button>
-</div>
+<section class="hero fade">
+<h1>FITLAS FRAGRANCE</h1>
+<p>Crafting scent that defines your presence</p>
 </section>
 
-<!-- BRAND STORY -->
-<section class="story">
-<h2>The Essence of FITLAS</h2>
-<p>
-FITLAS menghadirkan aroma yang mencerminkan karakter,
-emosi, dan kepercayaan diri generasi modern.
-Setiap parfum dirancang untuk meninggalkan kesan tak terlupakan.
-</p>
-</section>
+<section class="collection">
 
-<!-- PRODUCT GRID -->
-<section class="products">
-
-<div class="card">
-<img src="https://via.placeholder.com/300">
+<div class="card fade">
+<img src="images/velvet.jpg" onclick="showDetail('Velvet Kiss','Sensual romantic fragrance')">
 <h3>Velvet Kiss</h3>
-<p>Romantic sweet elegance scent</p>
+<p>Rp 76000</p>
+<button onclick="addCart('Velvet Kiss',76000)">Add To Cart</button>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300">
+<div class="card fade">
+<img src="images/moondew.jpg" onclick="showDetail('Moon Dew','Fresh elegant aura')">
 <h3>Moon Dew</h3>
-<p>Fresh calming night aroma</p>
-<p>Rp79.000</p>
-<button onclick="addCart('Moon Dew',79000)">Add To Cart</button>
+<p>Rp 80000</p>
+<button onclick="addCart('Moon Dew',80000)">Add To Cart</button>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300">
+<div class="card fade">
+<img src="images/moonblush.jpg" onclick="showDetail('Moon Blush','Soft feminine vibe')">
 <h3>Moon Blush</h3>
-<p>Soft feminine charming scent</p>
-<p>Rp79.000</p>
+<p>Rp 79000</p>
 <button onclick="addCart('Moon Blush',79000)">Add To Cart</button>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300">
+<div class="card fade">
+<img src="images/softblush.jpg" onclick="showDetail('Soft Blush','Daily comfort scent')">
 <h3>Soft Blush</h3>
-<p>Gentle powdery daily fragrance</p>
-<p>Rp79.000</p>
-<button onclick="addCart('Soft Blush',79000)">Add To Cart</button>
+<p>Rp 70000</p>
+<button onclick="addCart('Soft Blush',70000)">Add To Cart</button>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300">
+<div class="card fade">
+<img src="images/noir.jpg" onclick="showDetail('Noir Desire','Mysterious bold fragrance')">
 <h3>Noir Desire</h3>
-<p>Dark sensual luxury aroma</p>
-<p>Rp79.000</p>
+<p>Rp 79000</p>
 <button onclick="addCart('Noir Desire',79000)">Add To Cart</button>
 </div>
 
 </section>
 
-<!-- CTA -->
-<section class="cta">
-<h2>Find Your Signature Scent</h2>
-<a href="#">Order via WhatsApp</a>
-</section>
+<!-- POPUP DETAIL -->
+<div id="popup" class="popup">
+<div class="popup-content">
+<h2 id="popupTitle"></h2>
+<p id="popupDesc"></p>
+<button onclick="closePopup()">Close</button>
+</div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
