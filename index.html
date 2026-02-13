@@ -4,41 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FITLAS Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-<style>
-body{
-margin:0;
-font-family:Arial;
-background:#0f172a;
-color:white;
-}
+<body>
 
-header{
-display:flex;
-justify-content:space-between;
-padding:20px;
-background:#020617;
-}
+<header>
+<h1>FITLAS Store</h1>
+<p>Premium Fragrance Collection</p>
+</header>
 
-.logo{
-font-size:24px;
-font-weight:bold;
-}
+<section class="produk">
 
-.btn-cart{
-background:white;
-color:black;
-padding:8px 16px;
-border-radius:20px;
-text-decoration:none;
-}
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Fitlas Moon Dew</h3>
+<p>Rp69.000</p>
+<button onclick="addCart('Fitlas Moon Dew',69000)">Tambah Keranjang</button>
+</div>
 
-.hero{
-text-align:center;
-padding:60px;
-}
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Fitlas Vanilla Ice</h3>
+<p>Rp66.000</p>
+<button onclick="addCart('Fitlas Vanilla Ice',66000)">Tambah Keranjang</button>
+</div>
+  
+  <div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Fitlas Noir Desire</h3>
+<p>Rp69.000</p>
+<button onclick="addCart('Fitlas Noir Desire',69000)">Tambah Keranjang</button>
+</div>
 
-.products{
-display:flex;
-gap:25px;
-justify-content:center
+  <div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Fitlas Moon Blush</h3>
+<p>Rp69.000</p>
+<button onclick="addCart('Fitlas Moon Blush',69000)">Tambah Keranjang</button>
+</div>
+  
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Fitlas Velvet kiss</h3>
+<p>Rp69.000</p>
+<button onclick="addCart('Fitlas Velvet kiss',69000)">Tambah Keranjang</button>
+</div>
+  
+</section>
+
+<section class="cart">
+<h2>Keranjang</h2>
+<ul id="cart-list"></ul>
+<h3 id="total"></h3>
+
+<button class="checkout" onclick="checkoutWA()">Checkout via WhatsApp</button>
+</section>
+
+<script src="js/cart.js"></script>
+</body>
+</html>
