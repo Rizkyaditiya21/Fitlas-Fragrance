@@ -1,110 +1,104 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 /* ADD CART */
-function addCart(name, price){
 
-let found = cart.find(p => p.name === name);
+function addCart(name,price){
 
-if(found){
-found.qty += 1;
+let item = cart.find(p => p.name === name);
+
+if(item){
+item.qty +=1;
 }else{
 cart.push({name,price,qty:1});
 }
 
-saveCart();
-alert(name + " added");
+save();
+alert(name+" added to cart");
 }
 
 /* SAVE */
-function saveCart(){
-localStorage.setItem("cart", JSON.stringify(cart));
-renderCart();
+function save(){
+localStorage.setItem("cart",JSON.stringify(cart));
+render();
 }
 
 /* RENDER CART */
-function renderCart(){
+
+function render(){
 
 if(!document.getElementById("cartItems")) return;
 
-let output = "";
-let total = 0;
+let html="";
+let total=0;
 
 cart.forEach((item,index)=>{
 
-let subtotal = item.price * item.qty;
-total += subtotal;
+let sub=item.price*item.qty;
+total+=sub;
 
-output += `
+html+=`
 <div class="cart-item">
 <span>${item.name}</span>
 
 <div>
-<button onclick="changeQty(${index},-1)">-</button>
+<button onclick="qty(${index},-1)">-</button>
 ${item.qty}
-<button onclick="changeQty(${index},1)">+</button>
+<button onclick="qty(${index},1)">+</button>
 </div>
 
-<span>Rp ${subtotal}</span>
+<span>Rp ${sub}</span>
 
 <button onclick="removeItem(${index})">X</button>
 </div>
 `;
 });
 
-document.getElementById("cartItems").innerHTML = output;
-document.getElementById("totalPrice").innerText = "Total : Rp " + total;
+document.getElementById("cartItems").innerHTML=html;
+document.getElementById("total").innerText="Total Rp "+total;
 }
 
 /* QTY */
-function changeQty(index,val){
-cart[index].qty += val;
 
-if(cart[index].qty <= 0){
-cart.splice(index,1);
+function qty(i,val){
+cart[i].qty+=val;
+
+if(cart[i].qty<=0){
+cart.splice(i,1);
 }
 
-saveCart();
+save();
 }
 
 /* DELETE */
-function removeItem(index){
-cart.splice(index,1);
-saveCart();
+
+function removeItem(i){
+cart.splice(i,1);
+save();
 }
 
 /* CHECKOUT */
+
 function checkout(){
 
-let text = "Halo admin Fitlas saya mau order:%0A";
+let text="Halo admin Fitlas saya mau order:%0A";
 
-cart.forEach(item=>{
-text += item.name + " x" + item.qty + "%0A";
+cart.forEach(p=>{
+text+=p.name+" x"+p.qty+"%0A";
 });
 
 window.open("https://wa.me/6285872031760?text="+text);
 }
 
 /* POPUP */
-function showDetail(title,desc){
+
+function detail(title,desc){
 document.getElementById("popup").style.display="flex";
-document.getElementById("popupTitle").innerText=title;
-document.getElementById("popupDesc").innerText=desc;
+document.getElementById("popTitle").innerText=title;
+document.getElementById("popDesc").innerText=desc;
 }
 
-function closePopup(){
+function closePop(){
 document.getElementById("popup").style.display="none";
 }
 
-/* SCROLL ANIMATION */
-let faders = document.querySelectorAll(".fade");
-
-window.addEventListener("scroll",()=>{
-faders.forEach(el=>{
-let top = el.getBoundingClientRect().top;
-if(top < window.innerHeight - 50){
-el.classList.add("show");
-}
-});
-});
-
-renderCart();
+render();
