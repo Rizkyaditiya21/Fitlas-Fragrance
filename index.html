@@ -1,73 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fitlas Fragrance</title>
-<link rel="stylesheet" href="style.css">
-</head>
 
+<link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
-<nav>
-<h2>FITLAS</h2>
-<a href="cart.html">🛒 Cart</a>
-</nav>
+<!-- NAVBAR -->
+<header class="navbar">
+    <h2>FITLAS</h2>
+    <a href="cart.html" class="cart-btn">🛒 Keranjang</a>
+</header>
 
+<!-- HERO -->
 <section class="hero">
-<h1>FITLAS FRAGRANCE</h1>
-<p>Crafting scent that defines your presence</p>
+    <h1>Luxury Scent Collection</h1>
+    <p>Discover your signature scent</p>
 </section>
 
-<section class="collection">
+<!-- PRODUCT SECTION -->
+<section class="product-container">
 
-<div class="card">
-<img src="images/velvet.png" onclick="detail('Velvet Kiss','Sensual romantic fragrance')">
-<h3>Velvet Kiss</h3>
-<p>Rp 79000</p>
-<button onclick="addCart('Velvet Kiss',79000)">Add To Cart</button>
+<div class="product-card">
+    <img src="images/velvet-kiss.png">
+    <h3>Velvet Kiss</h3>
+    <p>Romantic Sweet Feminine</p>
+    <button onclick="addToCart('Velvet Kiss', 129000)">Tambah Keranjang</button>
 </div>
 
-<div class="card">
-<img src="images/moondew.png" onclick="detail('Moon Dew','Fresh elegant aura')">
-<h3>Moon Dew</h3>
-<p>Rp 79000</p>
-<button onclick="addCart('Moon Dew',79000)">Add To Cart</button>
+<div class="product-card">
+    <img src="images/moon-dew.png">
+    <h3>Moon Dew</h3>
+    <p>Fresh Calm Elegant</p>
+    <button onclick="addToCart('Moon Dew', 129000)">Tambah Keranjang</button>
 </div>
 
-<div class="card">
-<img src="images/moonblush.png" onclick="detail('Moon Blush','Soft feminine vibe')">
-<h3>Moon Blush</h3>
-<p>Rp 79000</p>
-<button onclick="addCart('Moon Blush',79000)">Add To Cart</button>
+<div class="product-card">
+    <img src="images/moon-blush.png">
+    <h3>Moon Blush</h3>
+    <p>Soft Floral Premium</p>
+    <button onclick="addToCart('Moon Blush', 129000)">Tambah Keranjang</button>
 </div>
 
-<div class="card">
-<img src="images/softblush.png" onclick="detail('Soft Blush','Daily comfort scent')">
-<h3>Soft Blush</h3>
-<p>Rp 79000</p>
-<button onclick="addCart('Soft Blush',79000)">Add To Cart</button>
+<div class="product-card">
+    <img src="images/soft-blush.png">
+    <h3>Soft Blush</h3>
+    <p>Elegant Daily Wear</p>
+    <button onclick="addToCart('Soft Blush', 129000)">Tambah Keranjang</button>
 </div>
 
-<div class="card">
-<img src="images/noir.png" onclick="detail('Noir Desire','Mysterious bold fragrance')">
-<h3>Noir Desire</h3>
-<p>Rp 79000</p>
-<button onclick="addCart('Noir Desire',79000)">Add To Cart</button>
+<div class="product-card">
+    <img src="images/noir-desire.png">
+    <h3>Noir Desire</h3>
+    <p>Dark Sexy Luxury</p>
+    <button onclick="addToCart('Noir Desire', 149000)">Tambah Keranjang</button>
 </div>
 
 </section>
 
-<!-- POPUP -->
-<div id="popup" class="popup">
-<div class="popup-box">
-<h2 id="popTitle"></h2>
-<p id="popDesc"></p>
-<button onclick="closePop()">Close</button>
-</div>
-</div>
-
-<script src="script.js"></script>
+<script src="js/cart.js"></script>
 
 </body>
 </html>
