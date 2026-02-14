@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FITLAS Fragrance</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <h2>FITLAS</h2>
+    <button onclick="openCart()">🛒</button>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Private Luxury Fragrance</h1>
+        <p>Crafted for Exclusive Identity</p>
+    </div>
+</section>
+
+
+<!-- PRODUCT -->
+<section class="product-section">
+
+<div class="product">
+    <img src="images/velvet.jpg">
+    <h3>Velvet Kiss</h3>
+    <button onclick="addToCart('Velvet Kiss',89000)">
+        Add To Cart
+    </button>
+</div>
+
+<div class="product">
+    <img src="images/moon.jpg">
+    <h3>Moon Dew</h3>
+    <button onclick="addToCart('Moon Dew',79000)">
+        Add To Cart
+    </button>
+</div>
+
+<div class="product">
+    <img src="images/noir.jpg">
+    <h3>Noir Desire</h3>
+    <button onclick="addToCart('Noir Desire',89000)">
+        Add To Cart
+    </button>
+</div>
+
+  <div class="product">
+    <img src="images/azure.jpg">
+    <h3>Azure Blue</h3>
+    <button onclick="addToCart('Azure Blue',89000)">
+        Add To Cart
+    </button>
+</div>
+  
+</section>
+
+
+<!-- CART POPUP -->
+<div id="cart-popup" class="cart-popup">
+
+    <div class="cart-header">
+        <h2>Shopping Cart</h2>
+        <span onclick="closeCart()">✕</span>
+    </div>
+
+    <div id="cart-items"></div>
+    <h3 id="cart-total"></h3>
+
+    <button class="checkout-btn" onclick="checkoutWA()">
+        Checkout WhatsApp
+    </button>
+
+</div>
+
+<script src="js/cart.js"></script>
+
+</body>
+</html>
