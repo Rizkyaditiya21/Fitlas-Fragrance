@@ -3,122 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FITLAS Fragrance</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+body{background:black;color:white;overflow-x:hidden}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
-body{
+/* LOADING */
+#loading{
+position:fixed;
+width:100%;
+height:100%;
 background:black;
-color:white;
-overflow-x:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+#loading h1{
+letter-spacing:6px;
+animation:pulse 2s infinite;
+}
+@keyframes pulse{
+0%{opacity:.3}50%{opacity:1}100%{opacity:.3}
 }
 
-/* NAVBAR */
-
+/* NAV */
 nav{
 position:fixed;
 top:0;
 width:100%;
+padding:20px 40px;
 display:flex;
 justify-content:space-between;
-padding:20px 40px;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,.6);
 backdrop-filter:blur(10px);
 z-index:999;
 }
 
-nav h2{
-letter-spacing:3px;
-}
-
-nav button{
-background:gold;
-border:none;
-padding:8px 18px;
-border-radius:8px;
-cursor:pointer;
-}
-
-/* HERO */
-
+/* HERO VIDEO */
 .hero{
 height:100vh;
-background:url('image/hero.jpg') center/cover no-repeat;
+position:relative;
+overflow:hidden;
+}
+.hero video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.hero .overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.5);
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:20px;
 }
-
 .hero h1{
 font-size:60px;
-letter-spacing:4px;
-}
-
-.hero p{
-margin-top:10px;
-opacity:0.7;
+letter-spacing:5px;
 }
 
 /* SECTION */
-
 .section{
-padding:100px 50px;
+padding:120px 60px;
 text-align:center;
 }
 
-/* PRODUCT */
+/* PARALLAX */
+.parallax{
+background:url("image/parallax.jpg") center/cover fixed;
+height:400px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+letter-spacing:4px;
+}
 
+/* PRODUCT */
 .products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
-margin-top:50px;
+margin-top:60px;
 }
-
 .card{
 background:#111;
 padding:20px;
 border-radius:20px;
-transition:0.4s;
+transition:.4s;
 cursor:pointer;
 }
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card img{
-width:100%;
-border-radius:15px;
-}
-
-.card h3{
-margin-top:15px;
-}
-
+.card:hover{transform:translateY(-10px)}
+.card img{width:100%;border-radius:15px}
 .card button{
 margin-top:10px;
+padding:8px 16px;
 background:gold;
 border:none;
-padding:8px 15px;
-border-radius:8px;
 cursor:pointer;
 }
 
-/* CART POPUP */
+/* REVIEW */
+.reviews{
+overflow:hidden;
+white-space:nowrap;
+margin-top:50px;
+}
+.review-track{
+display:inline-block;
+animation:slide 25s linear infinite;
+}
+.review{
+display:inline-block;
+background:#111;
+padding:20px;
+margin:0 15px;
+border-radius:15px;
+width:300px;
+}
+@keyframes slide{
+from{transform:translateX(0)}
+to{transform:translateX(-100%)}
+}
 
+/* CART */
 .cart{
 position:fixed;
 right:-400px;
@@ -127,248 +144,121 @@ width:350px;
 height:100%;
 background:#111;
 padding:25px;
-transition:0.4s;
+transition:.4s;
 z-index:1000;
 overflow-y:auto;
 }
+.cart.active{right:0}
 
-.cart.active{
-right:0;
-}
-
-.cart-item{
-margin-bottom:20px;
-border-bottom:1px solid #333;
-padding-bottom:10px;
-}
-
-.qty{
-display:flex;
-gap:10px;
-margin-top:5px;
-}
-
-.qty button{
-background:gold;
-border:none;
-padding:3px 10px;
-cursor:pointer;
-}
-
-.checkout{
-width:100%;
-margin-top:20px;
-padding:12px;
-background:gold;
-border:none;
-cursor:pointer;
-border-radius:8px;
-}
-
-/* POPUP DETAIL */
-
-.popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:1000;
-}
-
-.popup-content{
-background:#111;
-padding:30px;
-border-radius:20px;
-max-width:400px;
-text-align:center;
-}
-
-.popup img{
-width:100%;
-border-radius:15px;
-}
-
+/* BUTTON */
+.gold{background:gold;border:none;padding:10px 20px;cursor:pointer}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<div id="loading"><h1>FITLAS</h1></div>
+
+<audio id="clickSound" src="sound/click.mp3"></audio>
+
 <nav>
 <h2>FITLAS</h2>
-<button onclick="toggleCart()">🛒 Cart</button>
+<button class="gold" onclick="toggleCart()">🛒 Cart</button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+<video autoplay muted loop>
+<source src="video/hero.mp4" type="video/mp4">
+</video>
+<div class="overlay">
 <div>
-<h1>Private Luxury Fragrance</h1>
+<h1>PRIVATE LUXURY FRAGRANCE</h1>
 <p>Crafted for Exclusive Identity</p>
 </div>
+</div>
 </section>
 
-<!-- PRODUCT -->
+<!-- PRODUCTS -->
 <section class="section">
 <h2>Our Collection</h2>
-
 <div class="products">
 
-<!-- PRODUCT 1 -->
-<div class="card" onclick="openPopup('Moon Dew','Fresh aquatic elegant','image/moon-dew.jpg',250000)">
-<img src="image/moon-dew.jpg">
-<h3>Moon Dew</h3>
-<p>Rp 250.000</p>
-<button onclick="event.stopPropagation();addToCart('Moon Dew',250000)">Add Cart</button>
+<div class="card" onclick="addToCart('Moon Dew',250000)">
+<img src="image/moon-dew.jpg"><h3>Moon Dew</h3><p>Rp 250.000</p>
 </div>
 
-<!-- PRODUCT 2 -->
-<div class="card" onclick="openPopup('Noir Desire','Dark sensual masculine','image/noir.jpg',270000)">
-<img src="image/noir.jpg">
-<h3>Noir Desire</h3>
-<p>Rp 270.000</p>
-<button onclick="event.stopPropagation();addToCart('Noir Desire',270000)">Add Cart</button>
+<div class="card" onclick="addToCart('Noir Desire',270000)">
+<img src="image/noir.jpg"><h3>Noir Desire</h3><p>Rp 270.000</p>
 </div>
 
-<!-- PRODUCT 3 -->
-<div class="card" onclick="openPopup('Velvet Kiss','Sweet romantic soft','image/velvet.jpg',260000)">
-<img src="image/velvet.jpg">
-<h3>Velvet Kiss</h3>
-<p>Rp 260.000</p>
-<button onclick="event.stopPropagation();addToCart('Velvet Kiss',260000)">Add Cart</button>
+<div class="card" onclick="addToCart('Velvet Kiss',260000)">
+<img src="image/velvet.jpg"><h3>Velvet Kiss</h3><p>Rp 260.000</p>
 </div>
 
-<!-- PRODUCT 4 -->
-<div class="card" onclick="openPopup('Moon Blush','Floral feminine clean','image/blush.jpg',240000)">
-<img src="image/blush.jpg">
-<h3>Moon Blush</h3>
-<p>Rp 240.000</p>
-<button onclick="event.stopPropagation();addToCart('Moon Blush',240000)">Add Cart</button>
+<div class="card" onclick="addToCart('Moon Blush',240000)">
+<img src="image/blush.jpg"><h3>Moon Blush</h3><p>Rp 240.000</p>
 </div>
 
-<!-- PRODUCT 5 -->
-<div class="card" onclick="openPopup('Azure Blue','Fresh sporty energetic','image/azure.jpg',255000)">
-<img src="image/azure.jpg">
-<h3>Azure Blue</h3>
-<p>Rp 255.000</p>
-<button onclick="event.stopPropagation();addToCart('Azure Blue',255000)">Add Cart</button>
+<div class="card" onclick="addToCart('Azure Blue',255000)">
+<img src="image/azure.jpg"><h3>Azure Blue</h3><p>Rp 255.000</p>
 </div>
 
 </div>
 </section>
 
-<!-- POPUP DETAIL -->
-<div class="popup" id="popup">
-<div class="popup-content" id="popupContent"></div>
+<div class="parallax">CRAFTED FOR YOU</div>
+
+<!-- REVIEW -->
+<section class="section">
+<h2>Customer Reviews</h2>
+<div class="reviews">
+<div class="review-track">
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Elegant & long lasting</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Smells expensive</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Best niche fragrance</div>
 </div>
+</div>
+</section>
 
 <!-- CART -->
 <div class="cart" id="cart">
 <h2>Keranjang</h2>
 <div id="cartItems"></div>
 <h3>Total Rp <span id="total">0</span></h3>
-<button class="checkout" onclick="checkout()">Checkout WhatsApp</button>
+<button class="gold" onclick="checkout()">Checkout WhatsApp</button>
 </div>
 
 <script>
-
 let cart=[];
+const click=document.getElementById("clickSound");
 
-/* CART */
+window.onload=()=>{setTimeout(()=>{document.getElementById("loading").style.display="none"},2000)}
 
-function toggleCart(){
-document.getElementById("cart").classList.toggle("active");
-}
+function toggleCart(){click.play();document.getElementById("cart").classList.toggle("active")}
 
 function addToCart(name,price){
-
-let item=cart.find(p=>p.name===name);
-
-if(item){
-item.qty++;
-}else{
-cart.push({name,price,qty:1});
+click.play();
+let i=cart.find(p=>p.name===name);
+i?i.qty++:cart.push({name,price,qty:1});
+render();
 }
 
-renderCart();
-}
-
-function renderCart(){
-
-let html="";
-let total=0;
-
-cart.forEach((item,i)=>{
-
-total+=item.price*item.qty;
-
-html+=`
-<div class="cart-item">
-<h4>${item.name}</h4>
-<p>Rp ${item.price}</p>
-
-<div class="qty">
-<button onclick="changeQty(${i},-1)">-</button>
-${item.qty}
-<button onclick="changeQty(${i},1)">+</button>
-</div>
-
-</div>
-`;
+function render(){
+let html="",total=0;
+cart.forEach((i,n)=>{
+total+=i.price*i.qty;
+html+=`<p>${i.name} x${i.qty}</p>`;
 });
-
 document.getElementById("cartItems").innerHTML=html;
 document.getElementById("total").innerText=total;
 }
 
-function changeQty(i,val){
-
-cart[i].qty+=val;
-
-if(cart[i].qty<=0){
-cart.splice(i,1);
-}
-
-renderCart();
-}
-
 function checkout(){
-
 let msg="Halo saya mau order:%0A";
-
-cart.forEach(item=>{
-msg+=`${item.name} x${item.qty}%0A`;
-});
-
+cart.forEach(i=>msg+=`${i.name} x${i.qty}%0A`);
 window.open("https://wa.me/628xxxxxxxxxx?text="+msg);
-
 }
-
-/* POPUP */
-
-function openPopup(name,desc,img,price){
-
-document.getElementById("popup").style.display="flex";
-
-document.getElementById("popupContent").innerHTML=`
-<img src="${img}">
-<h2>${name}</h2>
-<p>${desc}</p>
-<p>Rp ${price}</p>
-<button onclick="addToCart('${name}',${price})">Add Cart</button>
-<br><br>
-<button onclick="closePopup()">Close</button>
-`;
-}
-
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
-
 </script>
 
 </body>
